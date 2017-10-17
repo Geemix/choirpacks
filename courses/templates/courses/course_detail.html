@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% load humanize %}
+{% load course_extras %}
+
+
+{% block title %}{{course.title}}{% endblock %}
+
+
+{% block content %}
+  <div id="index-banner" class="parallax-container">
+	{% include 'navbar.html' %}
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center blue-text text-lighten-2">{{ course.title }} - tutorial page</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">choose from available topics below to get started</h5>
+        </div>
+        <div class="row center">
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Get Started</a>
+        </div>
+        <br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="{{ course.topic_img.url }}" alt="course background image"></div>
+  </div>
+
+
+     <!--head-page-->
+
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Welcome to {{ course.title }}</h4>
+          <p class="center-align light">{{ course.description|markdown_to_html}}
+			There are {{ course.step_set.count|apnumber}} step{{ course.step_set.count|pluralize }} in this course: {{ course.step_set.all|join:", " }}</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+    <!--//head-page-->
+
+<!--lists of courses-->
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col s12 m5 l4"> 
+          <ul class="collapsible" data-collapsible="accordion">
+            <li>
+              <div class="collapsible-header">
+                <h5>Courses menu <i class="small material-icons circle blue">menu</i></h5>
+			  </div>
+              <div class="collapsible-body"><span>{% nav_courses_list %}</span>
+			 </div>
+            </li>
+          </ul> 
+               <ul class="z-depth-2 collection">
+				{% for step in course.step_set.all %}
+				<li class="collection-item avatar">
+				  <i class="small material-icons circle blue">school</i>
+				  <span class="title"><h6>
+					  <a href="{% url 'courses:step_detail' course_pk=step.course.pk step_pk=step.pk %}">{{ step.title }}</a></h6></span>
+				  <p>{{ step.description }}</p>
+				</li>
+				{% endfor %}
+			  </ul>
+	     </div>
+	  
+	  <div class="col s12 m7 l8">
+		 <div class="container">
+		  <div class="jumbotron">
+			<article>
+			 <h3>{{ step.course.title }}</h3>
+			 <h4>{{ step.title }}</h4>
+			 <p>{{ step.content|linebreaks }}</p>
+			</article>
+		  </div>
+		 </div>
+	  </div>
+			
+    </div><!-- row-->
+  </div><!-- container-->
+
+{% endblock %}

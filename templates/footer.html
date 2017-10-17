@@ -1,0 +1,47 @@
+{% load staticfiles %}
+
+<!-- ============================// footer //============================= -->
+  <footer class="page-footer blue darken-2">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col l4 s12">
+          <h5 class="white-text center"><u>Send us a feed-back</u></h5>
+			<form class="col s12">
+				<div class="input-field col s12">
+				  <i class="material-icons prefix">account_circle</i>
+				  <input id="email" type="email" class="validate">
+				  <label for="email">Email</label>
+				</div>
+				<div class="input-field col s12">
+				  <i class="material-icons prefix">mode_edit</i>
+				  <textarea id="icon_prefix2" class="materialize-textarea"></textarea>
+				  <label for="icon_prefix2">Message</label>
+				</div>
+			  <button class="btn-flat waves-effect waves-light" type="submit" name="action">Submit
+				<i class="material-icons right">send</i>
+			  </button>
+			</form>
+		</div>
+		  
+        <div class="col l3 s12 connect-social">
+          <h5 class="white-text center"><u>Connect with us</u></h5>
+          <ul> 
+			<li><a href="/" class="btn-floating btn-medium waves-effect waves-dark blue  mdi mdi-facebook mdi-24px">facebook</a>  facebook</li>
+			<li><a href="/" class="btn-floating btn-medium waves-effect waves-light blue  mdi mdi-twitter mdi-24px">twitter</a>  twitter</li>
+			<li><a href="/" class="btn-floating btn-medium waves-effect waves-light red  mdi mdi-google mdi-24px">google</a>  google</li>
+			<li><a href="/" class="btn-floating btn-medium waves-effect waves-dark blue  mdi mdi-instagram mdi-24px">instagram</a>  instagram</li>
+          </ul>
+        </div>
+		  
+		<div class="col l5 s12">
+          <h5 class="white-text center"><u>About us</u></h5>
+          <p class="grey-text text-lighten-4">We are a team of music teachers working on this project like it's our full time job. Any amount would help support and continue development on this project and is greatly appreciated.</p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-copyright">
+      <div class="container">
+      Made by GeeTech Contact us! {{ email|urlize }}
+      </div>
+    </div>
+  </footer>

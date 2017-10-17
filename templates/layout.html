@@ -1,0 +1,45 @@
+{% load staticfiles %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>{% block title %}{% endblock %}</title>
+
+  <!-- CSS  -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/materialize.css' %}" type="text/css" media="screen,projection"/>
+  <link rel="stylesheet" href="{% static 'css/materialdesignicons.min.css' %}" type="text/css" media="screen,projection"/>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" media="screen,projection"/>
+  <!-- FLAT ICONS -->
+  <link rel="stylesheet" href="{% static 'css/flaticon.css' %}" type="text/css">
+</head>
+  
+<body>
+	{% if messages %}
+	 <div class='row'>
+		 <div class='small-6 small-centered columns'>
+			 {% for message in messages %}
+			  	 <div data-alert class="alert-box {{message.tags}} radius">
+				 {{ message }}
+				 <a href="#" class="close">&times;</a>
+				 </div>
+			 {% endfor %}
+		 </div>
+	</div>
+	{% endif %}
+
+{% block content %}
+{% endblock %}
+
+{% include 'footer.html' %}
+  <!--  Scripts-->
+  <script src="{% static 'js/default.js' %}"></script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="{% static 'js/materialize.js' %}"></script>
+  <script src="{% static 'js/init.js' %}"></script>
+
+</body>
+</html>

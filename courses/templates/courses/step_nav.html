@@ -1,0 +1,11 @@
+               <ul class="z-depth-2 collection">
+				{% for step in course.step_set.all %}
+				<li class="collection-item avatar">
+				  <i class="small material-icons circle blue">school</i>
+				  <span class="title"><h6>
+					  <a href="{% url 'courses:step_detail' course_pk=step.course.pk step_pk=step.pk %}">
+						  {{ step.title }}</a></h6></span>
+				  <p>{{ step.description }}</p>
+				</li>
+				{% endfor %}
+			  </ul>

@@ -1,0 +1,56 @@
+{% load staticfiles %}
+
+   <header>            
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content'>
+      <li><a href="#!"><i class="material-icons left">person add</i>signup</a></li>
+      <li><a href="#!"><i class="material-icons left">person</i>login</a></li>
+      <li class="divider"></li>
+      <li><a href="#!"><i class="material-icons left">person outline</i>logout</a></li>
+    </ul>
+      
+      <nav class="blue darken-1" role="navigation">
+        <div class="nav-wrapper container-fluid">
+          <a id="logo-container" href="{% url 'home' %}" class="brand-logo">choirpacks</a>
+          <ul class="right hide-on-med-and-down">
+            <li><a href="{% url 'home' %}"><i class="material-icons left">home</i>home</a></li>
+            <li><a href="{% url 'courses:course_list'%}"><i class="material-icons left">school</i>tutorials</a></li>
+            <li><a href="#"><i class="material-icons left">group</i>community</a></li>
+            <li><a href="#"><i class="material-icons left">archive</i>archives</a></li>
+            <li>
+                <!-- Dropdown Trigger -->
+              <a class="dropdown-button" href="#!" data-activates="dropdown1">account
+                <i class="material-icons right">arrow_drop_down</i></a>
+            </li>
+            <form class="left">
+              <div class="input-field">
+                <input id="search" type="search" />
+                <label for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </ul>
+
+
+          <ul id="nav-mobile" class="side-nav">
+          <ul class="right hide-on-med-and-down">
+          </ul>
+            <li><a href="{% url 'home' %}">home</a></li>
+            <li><a href="{% url 'courses:course_list'%}">tutorials</a></li>
+            <li><a href="#">community</a></li>
+            <li><a href="#">downloads</a></li>
+            <li><a href="#">login</a></li>
+            <li><a href="#">signup</a></li>
+             <form class="left">
+              <div class="input-field">
+                <input id="search" type="search" />
+                <label for="search"><i class="material-icons">search</i></label>
+                <i class="material-icons">close</i>
+              </div>
+            </form>
+          </ul>
+          <a href="#" data-activates="nav-mobile" class="button-collapse">
+          <span class="material-icons">menu</span></a>
+        </div>
+      </nav>
+    </header>

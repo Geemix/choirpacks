@@ -1,0 +1,15 @@
+{% for course in courses %}
+  <ul class="collection">
+    <li class="collection-item avatar">
+      <i class="material-icons circle">school</i>
+      <span class="title">
+		  <a href="{% url 'courses:course_detail' pk=course.pk %}">{{ course.title }}</a>
+	  </span>
+      <a href="{% url 'courses:course_detail' pk=course.pk %}" class="secondary-content">
+		  <i class="material-icons">grade</i>
+	  </a>
+
+    </li><!--collection-item avatar-->
+  </ul><!--collection-->
+
+{% endfor %}

@@ -1,0 +1,95 @@
+/* Custom Stylesheet */
+/**
+ * Use this file to override Materialize files so you can update
+ * the core Materialize files in the future
+ *
+ * Made By MaterializeCSS.com
+ */
+
+nav .brand-logo {
+  color: #212121;
+}
+/*
+nav .nav-wrapper ul li{
+  padding: 0, 10px, 0, 10px;
+  margin: 0, 10px, 0, 10px;
+  width: inherit;
+}
+*/
+/*
+nav .nav-wrapper ul {
+  padding: 0, 10px, 0, 10px;
+  margin: 0, 10px, 0, 10px;
+}
+*/
+
+nav .nav-wrapper ul form #search{
+  padding-left: 40px;
+  width: inherit;
+}
+
+p {
+  line-height: 2rem;
+}
+
+.button-collapse {
+  color: #1976d2;
+}
+
+.parallax-container {
+  min-height: 380px;
+  line-height: 0;
+  height: auto;
+  color: rgba(255,255,255,.9);
+}
+  .parallax-container .section {
+    width: 100%;
+  }
+
+@media only screen and (max-width : 992px) {
+  .parallax-container .section {
+    position: absolute;
+    top: 40%;
+  }
+  #index-banner .section {
+    top: 10%;
+  }
+}
+
+@media only screen and (max-width : 600px) {
+  #index-banner .section {
+    top: 0;
+  }
+}
+
+.icon-block {
+  padding: 0 1px;
+}
+.icon-block i {
+  color: #212121;
+  font-size: 100px;
+  text-shadow: 1px 1px 1px #ccc;
+}
+
+footer.page-footer {
+  margin: 0;
+}
+
+footer.footer-copyright.container{
+  margin: 0;
+}
+
+hr .horizontal{
+	height:1.5em;
+	width:25em;
+	border:1px solid #000;
+}
+
+hr .vertical{
+  height:20px;
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  transform: rotate(90deg);
+} 

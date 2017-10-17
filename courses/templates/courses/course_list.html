@@ -1,0 +1,85 @@
+{% extends "layout.html" %}
+{% load staticfiles %}
+{% load humanize %}
+{% load course_extras %}
+
+{% block title %}choirpacks | tutorials{% endblock %}
+
+{% block content %}
+  <div id="index-banner" class="parallax-container">
+	{% include 'navbar.html' %}
+    <div class="section no-pad-bot">
+      <div class="container">
+        <br><br>
+        <h1 class="header center blue-text text-lighten-2">tutorial page</h1>
+        <div class="row center">
+          <h5 class="header col s12 light">choose from available topics below to get started</h5>
+        </div>
+        <div class="row center">
+          <a href="#" id="download-button" class="btn-large waves-effect waves-light blue lighten-1">Get Started</a>
+        </div>
+        <br>
+
+      </div>
+    </div>
+    <div class="parallax"><img src="{% static 'imgs/writing music 1.jpg' %}" alt="Unsplashed background img 1"></div>
+  </div>
+
+<!-- ================================/ tutorial welcome /================================= -->
+  <div class="container">
+    <div class="section">
+
+      <div class="row">
+        <div class="col s12 center">
+          <h3><i class="mdi-content-send brown-text"></i></h3>
+          <h4>Welcome to our tutorial Page</h4>
+          <p class="left-align light">Welcome to out tutorial page. Are you wasting your valuable time online instead of spending on our site? These online courses will help you make the most out of the time you spend online, aquiring the inspiration and knowledge you need for an effective practice session or enjoyable time learning music.</p>
+			<div>
+				Dont miss our latest course, 
+				<div class="chip">
+					 {% newest_course %}
+				</div>
+			</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+<!-- ===============================/ courses /================================== -->
+ <div class="container-fluid">
+   <div class="section">
+      <!--   Icon Section   -->
+      <div class="row">
+		  
+		{% for course in courses %}
+			<div class="col s12 m4">
+			  <div class="card">
+				<div class="card-image">
+				  <img src="{{ course.topic_img.url }}" height = "200" width = "150">
+				  <span class="card-title">
+					  <a href="{% url 'courses:course_detail' pk=course.pk %}">
+						  {{ course.title }}</a></span>
+				  <a class="btn-floating halfway-fab waves-effect waves-light blue" 
+					  href="{% url 'courses:course_detail' pk=course.pk %}">
+					  <i class="material-icons">school</i></a>
+				</div>
+				<div class="card-content">
+					{% if course.description|wordcount <= 5 %}
+				  		<p>{{ course.description }}</p>
+					{% else %}
+				  		<p>{{ course.description|truncatewords:8 }}</p>
+						<a href="{% url 'courses:course_detail' pk=course.pk %}">Read more</a>
+					{% endif %}
+					<div>Created on: {{ course.created_at|date:"F j, Y" }}</div>
+				</div><!--card-content-->
+			  </div><!--card-->
+			</div>
+		{% endfor %}
+
+      </div><!-- row -->
+      <!--//Icon Section-->
+    </div><!-- section -->
+  </div><!-- container -->
+
+{% endblock %}
